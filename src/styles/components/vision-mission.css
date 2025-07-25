@@ -1,0 +1,265 @@
+/*
+ * Vision and Mission Styles for CPMdot Dynamic
+ * Last Reviewed: Saturday, June 07, 2025, 08:30 PM +07 (Current time)
+ * Updated to match the provided screenshot: Top section alignment,
+ * and short, right-aligned underline for bottom Mission heading.
+ */
+
+/* Vision and Mission Container */
+.vision-mission-container {
+    background-color: #e6f0fa;
+    padding: 60px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main Content (Vision Text and Mission Icon) */
+.vision-mission-container main {
+    background-color: transparent;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Keep horizontal padding only here */
+    display: flex; /* Establishes a flex container */
+    gap: 0; /* No gap between the text content and image */
+    align-items: stretch; /* KEY: Ensures flex items (main-content and mission-icon-container) stretch to the same height and align their top edges */
+}
+
+.mission-icon-container {
+    width: 50%; /* Takes half the width on desktop */
+    height: 400px; /* Fixed height for the image container on desktop */
+    border-radius: 0 8px 8px 0; /* Rounded corners on the right side */
+    overflow: hidden; /* Ensures image doesn't spill out if larger */
+    order: 2; /* Places the image on the right (after main-content) */
+}
+
+.mission-icon {
+    width: 100%; /* Image fills its container's width */
+    height: 100%; /* Image fills its container's height */
+    object-fit: cover; /* Crops the image to cover the area without distortion */
+    display: block; /* Removes any extra space often found under images */
+}
+
+.main-content {
+    background-color: #d1e7ff; /* Light blue background */
+    padding: 40px; /* Generous padding inside the content box */
+    width: 50%; /* Takes half the width on desktop */
+    /* min-height is removed here because align-items: stretch on parent main will handle the height */
+    border-radius: 8px 0 0 8px; /* Rounded corners on the left side */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex; /* Establishes a flex container for its own content */
+    flex-direction: column; /* Stacks its internal content vertically */
+    justify-content: space-between; /* Distributes space between elements (h2, p, button) */
+    order: 1; /* Places the text content on the left */
+}
+
+/* --- Underlines for Vision and Mission (top) --- */
+/* These containers wrap the H2 and its underline, ensuring the underline matches H2 width */
+.vision-container,
+.mission-title-container {
+    display: flex; /* Establishes a flex container for the title and underline */
+    flex-direction: column; /* Stacks the title and underline vertically */
+    /*
+     * For .vision-container, width: fit-content makes the underline match the H2.
+     * For .mission-title-container (bottom), we'll control the underline width explicitly.
+     */
+}
+
+.vision-container {
+    align-items: flex-start; /* Aligns the title and underline to the left */
+    margin-bottom: 20px; /* Space below the Vision title block */
+    width: fit-content; /* Ensure underline spans the H2 width */
+}
+
+.main-content h2 {
+    font-size: 40px;
+    color: #2a5aa4; /* Blue color for headings */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    text-transform: uppercase; /* Uppercase text */
+}
+
+.underline {
+    height: 6px; /* Thickness of the underline */
+    margin-top: 4px; /* Space between text and underline */
+}
+
+.vision-underline {
+    background-color: #008080; /* Teal color for Vision underline */
+    width: 100%; /* Underline spans the full width of its parent (.vision-container) */
+}
+
+.mission-underline {
+    background-color: #C71585; /* Pink color for Mission underline (for bottom heading) */
+    width: 70px; /* FIXED WIDTH: Set a specific short width for the underline */
+    align-self: flex-end; /* ALIGNMENT: Aligns this specific underline to the right within its flex column parent */
+}
+
+.main-content p.vision-text {
+    font-size: 22px;
+    font-weight: 500;
+    color: #333; /* Dark grey for text */
+    margin: 0 0 20px 0; /* Space below the vision text */
+    line-height: 1.5; /* Good readability */
+}
+
+.main-content .action-btn {
+    padding: 12px 24px; /* Padding inside the button */
+    font-size: 16px;
+    background-color: #2a5aa4; /* Blue button background */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer; /* Indicates it's clickable */
+    align-self: flex-start; /* Aligns the button to the left within its column */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+.main-content .action-btn:hover {
+    background-color: #1e40af; /* Darker blue on hover */
+}
+
+/* Mission Section (bottom part of the page) */
+.mission {
+    background-color: transparent; /* Transparent background */
+    padding: 0; /* No padding on the section itself */
+}
+
+.mission-content {
+    max-width: 1200px; /* Max width for content */
+    margin: 60px auto 0; /* Top margin, centered horizontally */
+    padding: 0 20px; /* Horizontal padding */
+}
+
+.mission-title-container {
+    margin-bottom: 40px; /* Space below the Mission title block */
+    margin-left: auto; /* Pushes the entire title block to the right on desktop */
+    margin-right: 0; /* Ensures it's pushed to the right */
+    align-items: flex-end; /* Aligns contents (H2 and underline) to the right within their column */
+    width: auto; /* Allow the container to take its natural width */
+}
+
+.mission-content h2 {
+    font-size: 40px;
+    color: #2a5aa4; /* Blue color for heading */
+    text-transform: uppercase; /* Uppercase text */
+}
+
+.mission-grid {
+    display: grid; /* Uses CSS Grid for the mission cards */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
+    gap: 20px; /* Space between grid items */
+    align-items: stretch; /* Ensures all grid cards are the same height */
+}
+
+.mission-card {
+    background-color: #fff; /* White background for cards */
+    padding: 20px; /* Padding inside cards */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light grey border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: left; /* Text aligned to the left */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
+    display: flex; /* Flex container for content inside card */
+    flex-direction: column; /* Stacks content vertically */
+}
+.mission-card:hover {
+    transform: translateY(-5px); /* Lifts card slightly on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+}
+
+/* Specific border colors for each mission card */
+.mission-grid .mission-card:nth-child(1) { border-left: 5px solid #2a5aa4; }
+.mission-grid .mission-card:nth-child(2) { border-left: 5px solid #359a70; }
+.mission-grid .mission:nth-child(3) { border-left: 5px solid #ff6200; }
+.mission-grid .mission-card:nth-child(4) { border-left: 5px solid #663399; }
+.mission-grid .mission-card:nth-child(5) { border-left: 5px solid #c71585; }
+.mission-grid .mission-card:nth-child(6) { border-left: 5px solid #008080; }
+
+.mission-card h3 {
+    font-size: 16px;
+    color: #333; /* Dark grey for heading */
+    margin: 0 0 8px 0; /* Space below heading */
+    display: flex; /* Flex container for number and text */
+    align-items: flex-start; /* Aligns number and text to the top */
+    gap: 8px; /* Space between number and text */
+}
+
+.mission-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2a5aa4; /* Blue color for mission numbers */
+    line-height: 1.2; /* Line height for number */
+}
+
+.mission-card h3 span:not(.mission-number) {
+    flex-grow: 1; /* Allows text to take remaining space */
+}
+
+.mission-card p {
+    font-size: 14px;
+    color: #666; /* Medium grey for paragraph text */
+    line-height: 1.5; /* Good readability */
+    margin: 0 0 0 26px; /* Indents paragraph to align with text beside the number */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .vision-mission-container {
+        padding: 40px 0; /* Reduced padding for smaller screens */
+    }
+    .vision-mission-container main {
+        flex-direction: column; /* Stacks text and image vertically */
+        padding: 0; /* Remove horizontal padding as inner elements will handle it */
+    }
+    .mission-icon-container,
+    .main-content {
+        width: 100%; /* Take full width when stacked */
+        height: auto; /* Allow height to adjust based on content */
+        min-height: auto; /* Ensure no fixed min-height conflicts with auto */
+    }
+    .mission-icon-container {
+        height: 300px; /* Specific height for image on tablet */
+        border-radius: 0 0 8px 8px; /* Rounded corners on bottom when stacked */
+        order: 2; /* Image below text on mobile */
+    }
+    .main-content {
+        padding: 25px; /* Adjusted padding for tablet */
+        border-radius: 8px 8px 0 0; /* Rounded corners on top when stacked */
+        order: 1; /* Text above image on mobile */
+    }
+    .main-content h2,
+    .mission-content h2 {
+        font-size: 32px; /* Smaller headings */
+    }
+    .main-content p.vision-text {
+        font-size: 18px; /* Smaller text */
+    }
+    .vision-container,
+    .mission-title-container {
+        align-items: center; /* Center align titles on smaller screens */
+        width: auto; /* Allow width to expand if needed */
+        margin-left: auto; /* Center by setting both auto */
+        margin-right: auto;
+    }
+    .mission-grid {
+        grid-template-columns: 1fr; /* Single column layout for mission cards */
+        padding: 0 20px; /* Add back horizontal padding for the grid */
+    }
+    .mission-content {
+        padding: 0; /* Remove horizontal padding here as grid has it */
+    }
+}
+
+@media (max-width: 480px) {
+    .vision-mission-container {
+        padding: 30px 0; /* Further reduced padding for very small screens */
+    }
+    .mission-icon-container {
+        height: 200px; /* Smaller image height for mobile phones */
+    }
+    .main-content h2,
+    .mission-content h2 {
+        font-size: 28px; /* Even smaller headings */
+    }
+    .main-content p.vision-text {
+        font-size: 16px; /* Even smaller vision text */
+    }
+}

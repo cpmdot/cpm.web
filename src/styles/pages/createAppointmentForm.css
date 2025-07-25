@@ -1,0 +1,98 @@
+.appointment-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: sans-serif;
+}
+
+.appointment-form h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.appointment-form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.appointment-form input,
+.appointment-form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center; /* vertically centers text with checkbox */
+  gap: 8px;            /* spacing between checkbox and text */
+  margin-top: 16px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.4;    /* keeps label text visually centered */
+}
+
+.checkbox-label input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #0077cc;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  background-color: #0077cc;
+}
+
+.checkbox-label input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.appointment-form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.appointment-form button:hover {
+  background-color: #005fa3;
+}
+
+
+.info-msg {
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.success-msg {
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.error-msg {
+  color: #d32f2f;
+  margin-bottom: 8px;
+}

@@ -1,0 +1,784 @@
+/* --- Base Form Layouts --- */
+/* Main View Container - controls visibility of login/signup/forgotten views */
+#view-container {
+    display: flex; /* Always flex */
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh; /* Ensures container fills viewport height */
+    align-items: center; /* Center views vertically within container */
+    background-color: #f0f2f5; /* Apply background color here, specific to login pages */
+    font-family: Arial, Helvetica, sans-serif; /* Apply font here, specific to login pages */
+}
+
+/* Hidden class for switching views */
+.hidden {
+    display: none !important; /* Forces element to be hidden */
+}
+
+/* Login View Layout (Desktop: Side-by-side, Mobile: Stacked) */
+#login-view {
+    display: flex;
+    flex-direction: row; /* Default desktop layout */
+    align-items: center;
+    justify-content: center;
+    max-width: 980px; /* Max width of the overall login section */
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Left side of Login View (Logo and Tagline) */
+.login-left {
+    flex: 1; /* Takes remaining space */
+    text-align: left;
+    padding-right: 32px; /* Space from login form */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px; /* Minimum height for visual balance */
+}
+
+/* Styling for the CPM logo image in login/signup forms */
+.login-logo-img {
+    height: auto; /* Reduced height to make it smaller */
+    width: 200px; /* Maintain aspect ratio */
+    margin-bottom: 0; /* Adjust spacing below the image */
+    display: block; /* Ensure it's a block element */
+    filter: grayscale(100%) brightness(0%); /* Make the logo black */
+}
+
+
+.login-left .tagline {
+    font-size: 20px; /* Slightly smaller tagline to match logo */
+    color: #1c1e21; /* Dark grey */
+    margin-top: 10px;
+    line-height: 1.2;
+}
+
+/* Right side of Login View (Form Container) */
+.login-right {
+    flex: 0 0 396px; /* Fixed width for the form container on desktop */
+}
+
+/* Generic Form Container Styles (for login, signup, forgotten password forms) */
+/* Applied to the specific container divs loaded from partials */
+.login-container, .signup-container, .forgotten-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 396px; /* Default width for desktop */
+    max-width: 100%; /* Ensure it's responsive */
+    text-align: center;
+    border: 1px solid #d3d3d3; /* Added border for the main container */
+}
+
+/* Form Fields (input, select, textarea) */
+input, select, textarea { /* Apply border to all these types */
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccd0d5; /* Explicit border for input fields */
+    border-radius: 5px;
+    font-size: 15px;
+    box-sizing: border-box; /* Include padding/border in width */
+    height: 43px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #1c1e21;
+}
+
+input::placeholder, textarea::placeholder { /* For placeholders */
+    color: #606770;
+    font-size: 15px;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input:focus, select:focus, textarea:focus { /* Focus styles for inputs/selects/textareas */
+    outline: none;
+    border-color: #1877f2; /* Blue border on focus */
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2); /* Blue shadow on focus */
+}
+
+/* Login Form Specific Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-button {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 16px;
+    width: 100%;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #166fe5;
+}
+
+.forgot-password {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.forgot-password a {
+    color: #1877f2;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.form-divider {
+    border: none;
+    border-top: 1px solid #dddfeb;
+    margin: 20px 0;
+}
+
+.create-page { /* This div is removed from Login.jsx now */
+    margin-top: 28px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.create-page a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.create-page a:hover {
+    text-decoration: underline;
+}
+
+/* Updated styling for the 'Create new account' button */
+.create-account-button {
+    background-color: #00a400; /* Green background, matching signup-button */
+    color: white; /* White text, matching signup-button */
+    border: none;
+    border-radius: 6px; /* Rounded corners, matching signup-button */
+    font-size: 20px; /* Matching signup-button */
+    font-weight: bold; /* Matching signup-button */
+    padding: 12px 16px; /* Matching signup-button */
+    width: auto; /* Make the button shorter */
+    margin-top: 15px; /* Align with other buttons */
+    margin-bottom: 15px;
+    cursor: pointer;
+    display: block; /* Ensure it takes a new line */
+    margin-left: auto;
+    margin-right: auto; /* Center the button */
+}
+
+.create-account-button:hover {
+    background-color: #008c00; /* Darker green on hover, matching signup-button */
+}
+
+/* Signup View Layout (Always column-based, centered) */
+#signup-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f0f2f5; /* Match body background */
+}
+
+/* Styling for the CPM logo image in signup form */
+#signup-view .login-logo-img {
+    height: 40px; /* Adjusted height for signup logo */
+    width: auto;
+    margin-bottom: 20px; /* Space below the logo */
+    display: block;
+    filter: grayscale(100%) brightness(0%);
+}
+
+.signup-title {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #1c1e21;
+}
+
+.signup-subtitle {
+    font-size: 15px;
+    color: #606770;
+    margin-bottom: 10px;
+}
+
+.subtitle-divider {
+    border: none;
+    border-top: 1px solid #dddfeb;
+    margin: 10px 0;
+}
+
+.name-fields {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.name-fields input {
+    flex: 1;
+}
+
+.birthday-section, .gender-section {
+    text-align: left;
+    margin: 10px 0;
+}
+
+.birthday-section label, .gender-section label {
+    display: block;
+    font-size: 12px;
+    color: #606770;
+    margin-bottom: 5px;
+}
+
+.info-icon {
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #606770;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin-left: 2px;
+}
+
+.birthday-fields {
+    display: flex;
+    gap: 10px;
+}
+
+.birthday-fields select {
+    flex: 1;
+    padding: 0 16px;
+    height: 43px;
+    line-height: 43px; /* Center text vertically in select */
+    -webkit-appearance: none; /* Hide default arrow */
+    -moz-appearance: none;
+    appearance: none;
+    /* Custom arrow using background-image */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><path fill="none" stroke="%23606770" stroke-width="2" d="M0 0l5 5 5-5"/></svg>') no-repeat right 16px center;
+    background-size: 10px 5px;
+}
+
+.gender-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.gender-option {
+    flex: 1;
+    border: 1px solid #ccd0d5; /* Main border for the gender option box */
+    border-radius: 5px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 43px;
+    position: relative; /* For custom radio button positioning */
+}
+
+.gender-option input[type="radio"] {
+    /* Hide the native radio button but make it fully clickable */
+    position: absolute;
+    opacity: 0;
+    width: 100%;   /* Make it fill the clickable area */
+    height: 100%;  /* Make it fill the clickable area */
+    top: 0;        /* Ensure it starts at the top-left of parent */
+    left: 0;       /* Ensure it starts at the top-left of parent */
+    margin: 0;     /* Remove any default margins */
+    padding: 0;    /* Remove any default padding */
+    cursor: pointer; /* Show pointer on hover to indicate clickable */
+    z-index: 1;    /* Ensure it's layered correctly to receive clicks */
+}
+
+.gender-option label {
+    margin: 0;
+    font-size: 15px;
+    color: #1c1e21;
+    line-height: 15px;
+    flex-grow: 1; /* Allow label to take available space */
+    padding-right: 25px; /* Space for the custom radio button */
+    cursor: pointer; /* Indicate it's clickable */
+    position: relative; /* For custom radio button */
+    height: 100%; /* ENSURE LABEL COVERS FULL HEIGHT FOR CLICKS */
+    display: flex; /* Use flex to align label content */
+    align-items: center; /* Center label content vertically */
+}
+
+/* Custom Radio Button Circle */
+.gender-option label::before {
+    content: '';
+    position: absolute;
+    right: 0; /* Position to the right within the label */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px; /* Size of the custom circle */
+    height: 18px;
+    border: 1px solid #ccd0d5; /* Border for the circle */
+    border-radius: 50%; /* Make it a circle */
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* Inner dot for checked state */
+.gender-option input[type="radio"]:checked + label::before {
+    background-color: #1877f2; /* Blue fill when checked */
+    border-color: #1877f2; /* Blue border when checked */
+}
+
+.gender-option input[type="radio"]:checked + label::after {
+    content: '';
+    position: absolute;
+    right: 5px; /* Position of the inner dot */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px; /* Size of the inner dot */
+    height: 8px;
+    background-color: white; /* White dot */
+    border-radius: 50%;
+}
+
+
+.signup-button {
+    background-color: #00a400;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 16px;
+    width: auto;
+    margin: 15px auto; /* Center button */
+    cursor: pointer;
+    display: block;
+}
+
+.signup-button:hover {
+    background-color: #008c00;
+}
+
+.disclaimer {
+    font-size: 11px;
+    color: #777;
+    text-align: left;
+    margin: 15px 0;
+    line-height: 1.4;
+}
+
+.disclaimer a {
+    color: #385898;
+    text-decoration: none;
+}
+
+.disclaimer a:hover {
+    text-decoration: underline;
+}
+
+.login-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #1c1e21;
+}
+
+.login-link a {
+    color: #1877f2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Forgotten Password View Layout (Always column-based, centered) */
+#forgotten-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f0f2f5; /* Match body background */
+}
+
+#forgotten-view .forgotten-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px 10px 20px; /* Adjusted padding for better spacing */
+    width: 396px;
+    max-width: 100%;
+    text-align: center;
+    border: 1px solid #d3d3d3; /* Added border */
+}
+
+#forgotten-view .forgotten-title {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #1c1e21;
+}
+
+#forgotten-view .forgotten-subtitle {
+    font-size: 15px;
+    color: #606770;
+    margin: 0 0 20px 0;
+}
+
+#forgotten-view .subtitle-divider {
+    border: none;
+    border-top: 1px solid #dddfeb;
+    margin: 10px -20px; /* Extend divider full width of container */
+}
+
+#forgotten-view .form-divider {
+    border: none;
+    border-top: 1px solid #dddfeb;
+    margin: 10px -20px; /* Extend divider full width of container */
+}
+
+#forgotten-view .forgotten-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#forgotten-view .button-row {
+    display: flex;
+    justify-content: flex-end; /* Buttons align to the right */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#forgotten-view .cancel-button {
+    background-color: #e4e6eb;
+    color: #1c1e21;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+#forgotten-view .cancel-button:hover {
+    background-color: #d8dade;
+}
+
+#forgotten-view .submit-button {
+    background-color: #00a400;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 16px;
+    width: auto;
+    cursor: pointer;
+}
+
+#forgotten-view .submit-button:hover {
+    background-color: #008c00;
+}
+
+/* Floating Social Icons (Top Right) */
+/* REMOVED: .social-header from Login.jsx */
+
+
+/* Responsive Adjustments */
+/* Tablet (≥768px and <1024px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    /* REMOVED .social-header rules */
+
+    #login-view {
+        flex-direction: column; /* Stack left/right columns */
+        padding: 40px 20px;
+    }
+
+    .login-left {
+        text-align: center;
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .login-left .login-logo-img { /* Apply to img directly */
+        height: auto; /* Adjusted size for tablet */
+        width: 150px;
+    }
+
+    .login-left .tagline {
+        font-size: 20px;
+    }
+
+    .login-right {
+        width: 100%; /* Take full width on tablet */
+        max-width: 396px; /* Constrain max width */
+    }
+
+    .login-container, .signup-container, .forgotten-container {
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #d3d3d3; /* Added border */
+    }
+
+    .signup-title, .forgotten-title {
+        font-size: 22px;
+    }
+
+    .signup-subtitle, .forgotten-subtitle {
+        font-size: 14px;
+    }
+
+    input, select {
+        padding: 12px 14px;
+        font-size: 14px;
+        height: 38px;
+        border: 1px solid #ccd0d5; /* Ensure border */
+    }
+
+    input::placeholder {
+        font-size: 14px;
+    }
+
+    .birthday-fields select {
+        padding: 0 14px;
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .gender-option {
+        height: 38px;
+        padding: 0 8px;
+        border: 1px solid #ccd0d5; /* Ensure border */
+    }
+
+    .gender-option input[type="radio"] { /* Target radio buttons specifically */
+        border: 1px solid #ccd0d5; /* Ensure border */
+    }
+
+    .gender-option label {
+        font-size: 14px;
+    }
+
+    .login-button, .signup-button, #forgotten-view .submit-button {
+        font-size: 18px;
+        padding: 10px 14px;
+        border: none;
+    }
+
+    .forgot-password, .create-account-link, .login-link {
+        font-size: 13px;
+    }
+
+    .create-account-button, #forgotten-view .cancel-button {
+        font-size: 16px;
+        padding: 6px 14px;
+        border: none;
+    }
+}
+
+/* Mobile (<768px) */
+@media (max-width: 767px) {
+    /* REMOVED .social-header rules */
+
+    #login-view {
+        flex-direction: column;
+        padding: 20px 15px;
+    }
+
+    .login-left {
+        text-align: center;
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .login-left .login-logo-img { /* Apply to img directly */
+        height: auto; /* Adjusted size for smaller screens */
+        width: 120px; /* Adjust width for smaller screens */
+    }
+
+    .login-left .tagline {
+        font-size: 18px;
+    }
+
+    .login-right {
+        width: 100%;
+    }
+
+    .login-container, .signup-container, .forgotten-container {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        border: 1px solid #d3d3d3; /* Added border */
+    }
+
+    .signup-title, .forgotten-title {
+        font-size: 20px;
+    }
+
+    .signup-subtitle, .forgotten-subtitle {
+        font-size: 13px;
+    }
+
+    input, select {
+        padding: 12px 14px;
+        font-size: 14px;
+        height: 38px;
+        border: 1px solid #ccd0d5; /* Ensure border */
+    }
+
+    input::placeholder {
+        font-size: 14px;
+    }
+
+    .name-fields {
+        flex-direction: column; /* Stack name fields */
+        gap: 10px;
+    }
+
+    .birthday-fields {
+        flex-direction: column; /* Stack birthday selects */
+        gap: 10px;
+    }
+
+    .birthday-fields select {
+        width: 100%;
+        padding: 0 14px;
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .gender-options {
+        flex-direction: column; /* Stack gender options */
+        gap: 10px;
+    }
+
+    .gender-option {
+        height: 38px;
+        padding: 10px 10px;
+        border: 1px solid #ccd0d5; /* Ensure border */
+    }
+
+    .gender-option input[type="radio"] { /* Target radio buttons specifically */
+        border: 1px solid #ccd0d5; /* Ensure border */
+    }
+
+    .gender-option label {
+        font-size: 14px;
+    }
+
+    .login-button, .signup-button, #forgotten-view .submit-button {
+        font-size: 16px;
+        padding: 10px 14px;
+        width: 100%; /* Make buttons full width */
+        border: none;
+    }
+
+    .forgot-password, .create-account-link, .login-link {
+        font-size: 13px;
+    }
+
+    .create-account-button, #forgotten-view .cancel-button {
+        font-size: 14px;
+        padding: 6px 12px;
+        border: none;
+    }
+}
+
+/* Small Mobile (<400px) */
+@media (max-width: 399px) {
+    .login-left .login-logo-img { /* Apply to img directly */
+        height: auto; /* Even smaller mobile logo height */
+        width: 120px; /* Adjust width for smaller screens */
+    }
+
+    .login-left .tagline {
+        font-size: 16px;
+    }
+
+    #signup-view .login-logo-img { /* Apply to img directly */
+        height: 28px; /* Even smaller signup logo height */
+        width: auto;
+        margin-bottom: 15px;
+    }
+
+    .login-container, .signup-container, .forgotten-container {
+        padding: 12px;
+        border: 1px solid #d3d3d3; /* Added border */
+    }
+
+    .signup-title, .forgotten-title {
+        font-size: 18px;
+    }
+
+    .signup-subtitle, .forgotten-subtitle {
+        font-size: 12px;
+    }
+
+    input, select {
+        padding: 10px 12px;
+        font-size: 13px;
+        height: 36px;
+        border: 1px solid #ccd0d5; /* Ensure border */
+    }
+
+    input::placeholder {
+        font-size: 13px;
+    }
+
+    .birthday-fields select {
+        padding: 0 12px;
+        height: 36px;
+        line-height: 36px;
+    }
+
+    .gender-option {
+        height: 36px;
+        border: 1px solid #ccd0d5; /* Ensure border */
+    }
+
+    .gender-option input[type="radio"] { /* Target radio buttons specifically */
+        border: 1px solid #ccd0d5; /* Ensure border */
+    }
+
+    .gender-option label {
+        font-size: 13px;
+    }
+
+    .login-button, .signup-button, #forgotten-view .submit-button {
+        font-size: 15px;
+        padding: 8px 12px;
+        border: none;
+    }
+
+    .forgot-password, .create-account-link, .login-link {
+        font-size: 12px;
+    }
+
+    .create-account-button, #forgotten-view .cancel-button {
+        font-size: 13px;
+        padding: 6px 10px;
+        border: none;
+    }
+}

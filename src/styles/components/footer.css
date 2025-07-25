@@ -1,0 +1,526 @@
+/*
+ * Footer Styles for CPMdot Dynamic
+ * Last Reviewed: Saturday, June 07, 2025, 10:48 PM +07
+ * Final comprehensive check and complete code.
+ */
+
+/* CSS Custom Properties */
+:root {
+    --primary-bg: #294263; /* Dark blue */
+    --accent-color: rgb(226, 180, 30); /* Yellow accent */
+    --footer-bottom-bg: #E6F0E9; /* Light green-grey for bottom */
+    --text-dark: #0a0a0a; /* Dark text color */
+    --text-light: #ffffff; /* Light text color */
+    --border-light: rgba(255, 255, 255, 0.3); /* Light border for dividers */
+}
+
+/* Footer Container */
+footer {
+    color: var(--text-light); /* Default text color for main footer */
+    font-family: 'Poppins', sans-serif; /* Consistent font family */
+}
+
+/* Main Footer Section (top dark blue part) */
+.footer-main {
+    background-color: var(--primary-bg);
+    padding: 40px 0; /* Vertical padding */
+}
+
+.footer-content {
+    max-width: 1200px; /* Max width for content area */
+    margin: 0 auto; /* Center content horizontally */
+    padding: 0 20px; /* Horizontal padding */
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns on desktop */
+    gap: 20px; /* Gap between grid columns */
+    align-items: flex-start; /* Align items to the top of their grid cells */
+}
+
+/* Footer Logo Column */
+.footer-logo {
+    display: flex;
+    flex-direction: column; /* Stack logo and domain text */
+    align-items: flex-start; /* Align contents to the left */
+}
+
+/* Hide/Show main logo images based on breakpoint */
+.footer-logo .logo-desktop {
+    display: none; /* Hidden by default (on mobile) */
+}
+.footer-logo .logo-mobile {
+    display: none; /* Not used for the main logo in this setup, but kept for consistency if needed */
+}
+
+.footer-logo img { /* General image styling for logos */
+    max-height: 40px; /* Adjusted max height to match cpmdot.com size proportionally */
+    width: auto;
+    filter: brightness(0) invert(1); /* Makes a colored logo white */
+    margin-bottom: 5px; /* Space between logo and domain text */
+}
+
+/* Styles for the "CPM." text in the mobile copyright (now replaced by image) */
+/* .cpm-brand-text {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-right: 5px;
+} */
+
+/* This rule is for the mobile bottom copyright logo image specifically */
+.logo-mobile-bottom-copyright {
+    max-height: 18px; /* Adjusted height to fit well with copyright year text */
+    width: auto;
+    margin-right: 5px; /* Space between logo and copyright year text */
+    vertical-align: middle; /* Align image nicely with text */
+    filter: none; /* Ensure logo color is natural, not inverted */
+}
+
+
+.footer-logo-text {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Allows domain text to take full available width */
+}
+
+.footer-logo-text .vertical-line {
+    display: inline-block;
+    width: 8px;
+    height: 1em; /* Make height relative to font size for consistency */
+    background-color: var(--accent-color); /* Yellow accent color */
+    margin-right: 8px;
+}
+
+.footer-logo-text .domain {
+    font-size: 14px; /* Size of cpmdot.com */
+    color: var(--text-light);
+    font-family: Arial, sans-serif;
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* Footer Links Columns (About Us & Quick Links) */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+    transition: text-decoration 0.3s ease; /* Smooth underline transition */
+}
+
+.footer-links ul li a:hover,
+.footer-links ul li a:focus {
+    text-decoration: underline;
+}
+
+/* Footer Social Column */
+.footer-social {
+    display: flex;
+    flex-direction: column; /* Stacks text and icons vertically */
+    align-items: flex-start; /* Aligns contents to the left */
+}
+
+.follow-us-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px; /* Adjusted margin for closer spacing with icons */
+}
+
+.follow-us,
+.cpmdot-handle {
+    font-size: 16px;
+    color: var(--text-light);
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px; /* Space between icons */
+    justify-content: flex-start; /* Aligns icons to the left */
+}
+
+.social-link {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Make it a circle */
+    border: 1px solid var(--text-light); /* White border */
+    background-color: transparent; /* Default transparent background, will be dark via main bg */
+    overflow: hidden; /* Ensure icon doesn't exceed circle */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.social-link:hover,
+.social-link:focus {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle dark background on hover */
+    border-color: var(--accent-color); /* Change border on hover */
+    outline: none;
+}
+
+.social-icon {
+    width: 20px; /* Slightly smaller than parent for padding */
+    height: 20px;
+    filter: brightness(0) invert(1); /* Makes a colored icon white */
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover .social-icon,
+.social-link:focus .social-icon {
+    opacity: 0.8;
+}
+
+/* Footer Bottom Section (light green-grey bar) */
+.footer-bottom {
+    background-color: var(--footer-bottom-bg);
+    padding: 20px 0;
+    border-bottom: 4px solid rgb(53, 154, 112); /* Green bottom border */
+}
+
+.footer-bottom-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center; /* Vertically align items in the middle for both layouts */
+    gap: 10px; /* Default gap */
+}
+
+/* Styles for the "CPM." text in the mobile copyright (now replaced by image) */
+/* .cpm-brand-text is only relevant if using strong tag for text, not img */
+
+
+/* Language Toggle Wrapper (contains button and popup) */
+.footer-language-toggle-wrapper {
+    position: relative; /* For the language popup positioning */
+}
+
+/* Style for the language toggle button */
+.footer-language-toggle {
+    display: flex; /* Always a flex container for text and icon */
+    align-items: center;
+    padding: 8px 12px;
+    gap: 8px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    color: var(--primary-bg); /* Dark blue text */
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.footer-language-toggle:hover,
+.footer-language-toggle:focus {
+    background: rgba(42, 90, 164, 0.1);
+    outline: none;
+}
+
+.footer-language-toggle img { /* Target the image inside the toggle */
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.footer-language-toggle[aria-expanded="true"] img {
+    transform: rotate(180deg); /* Rotate icon when expanded */
+}
+
+/* Footer Language Popup */
+.footer-language-popup {
+    display: flex; /* Hidden by React state, but ensures flex layout when visible */
+    flex-direction: column;
+    position: absolute;
+    bottom: 100%; /* Position above the toggle button */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-light);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    min-width: 120px;
+    max-width: 90vw;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.footer-language-popup button { /* Style for language options inside popup */
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #333;
+    background: none;
+    border: none;
+    text-align: left;
+    transition: background 0.3s ease;
+}
+
+.footer-language-popup button:hover,
+.footer-language-popup button:focus {
+    background: rgba(42, 90, 164, 0.1);
+    outline: none;
+}
+
+/* Individual elements within footer-bottom-content */
+.footer-bottom p { /* Common styles for copyright paragraphs */
+    font-size: 12px;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* Hide/Show conditional copyright paragraphs */
+.copyright-mobile { display: none; } /* Hidden by default on desktop */
+.copyright-desktop { display: none; } /* Hidden by default on mobile */
+
+
+.footer-bottom-links-container {
+    display: flex; /* This container holds the links and the language toggle (on mobile) */
+    justify-content: flex-start; /* Default, will be overridden */
+    align-items: center;
+    width: 100%; /* Take full width to allow space-between to work */
+}
+
+.footer-bottom-links {
+    display: flex; /* Container for individual links */
+    gap: 15px; /* Space between links */
+    align-items: center;
+    flex-wrap: nowrap; /* Prevent links from wrapping internally */
+}
+
+.footer-bottom-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 12px;
+    white-space: nowrap; /* Prevent individual links from wrapping */
+    transition: text-decoration 0.3s ease;
+}
+
+.footer-bottom-links a:hover,
+.footer-bottom-links a:focus {
+    text-decoration: underline;
+}
+
+
+/* Desktop View Adjustments (min-width: 769px) */
+@media (min-width: 769px) {
+    .footer-logo { /* Show main logo container on desktop */
+        display: flex;
+    }
+    .footer-logo .logo-desktop { /* Show the desktop logo image */
+        display: block;
+    }
+    /* .cpm-main-logo-text and other text-based logo styles are now hidden on desktop */
+
+    .footer-logo img { /* Apply desktop-specific sizing to logo image */
+        max-height: 40px; /* Adjusted to match visual size with cpmdot.com */
+        width: auto;
+    }
+
+    .footer-logo-text .domain { /* Uppercase domain text on desktop */
+        text-transform: uppercase;
+    }
+
+    .footer-links .header-wrapper { /* Hide mobile collapsible header */
+        display: none;
+    }
+
+    .footer-links ul { /* Show link lists directly on desktop */
+        display: block;
+        padding-left: 0; /* Remove mobile padding */
+    }
+
+    .footer-bottom-content {
+        flex-direction: row; /* Desktop: Layout items horizontally */
+        justify-content: space-between; /* Push copyright left, links group right */
+        align-items: center; /* Vertically center items */
+        flex-wrap: nowrap; /* Ensure items stay on one line on desktop */
+    }
+
+    /* Hide language toggle on desktop */
+    .footer-language-toggle-wrapper {
+        display: none;
+    }
+
+    /* Show desktop copyright, hide mobile copyright */
+    .copyright-mobile { display: none; }
+    .copyright-desktop { display: block; } /* Show desktop version */
+
+    .footer-bottom p { /* Copyright text container - general styles */
+        font-size: 14px; /* Larger font for copyright on desktop */
+        flex-grow: 0;
+        flex-shrink: 0;
+        text-align: left; /* Ensure left alignment for text inside */
+        width: auto; /* Allow content to dictate width */
+    }
+
+    .footer-bottom-links-container {
+        justify-content: flex-end; /* ALIGNMENT: Align the links to the right within this container */
+        width: auto; /* Allow it to shrink-wrap its content */
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-top: 0; /* No top margin needed when horizontal */
+    }
+
+    .footer-bottom-links {
+        gap: 20px; /* More space between links on desktop */
+        justify-content: flex-end; /* Ensure individual links align right */
+    }
+}
+
+/* Responsive Adjustments for Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .footer-main {
+        padding: 0 0 20px 0;
+    }
+
+    .footer-content {
+        grid-template-columns: minmax(0, 1fr); /* Single column layout for main footer */
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .footer-logo {
+        display: none; /* Hide the main footer logo container on mobile */
+    }
+
+    /* Collapsible header styling for mobile */
+    .footer-links .header-wrapper {
+        background-color: rgba(255, 255, 255, 0.05); /* Slightly darker background for headers */
+        padding: 15px 20px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--text-light);
+    }
+    .footer-links .header-wrapper h4 {
+        margin-bottom: 0; /* Remove h4's default margin */
+        font-size: clamp(14px, 4vw, 16px);
+        font-weight: 700;
+    }
+    .footer-links .header-wrapper::after {
+        content: '▼';
+        font-size: 14px;
+        transition: transform 0.3s ease;
+    }
+    .footer-links .header-wrapper.active::after {
+        content: '▲';
+        transform: rotate(180deg);
+    }
+
+    .header-divider { /* This divider is generally hidden on mobile for collapsible sections */
+        display: none;
+    }
+
+    .footer-links ul {
+        display: none; /* Hide link lists by default on mobile */
+        padding: 0 20px 10px; /* Padding for list items */
+        margin-top: -5px; /* Adjust to sit closer to header */
+    }
+    .footer-links ul.active {
+        display: block; /* Show link lists when active */
+    }
+
+    .footer-links ul li a {
+        font-size: clamp(12px, 3vw, 14px);
+        color: #d3d9e6; /* Lighter color for mobile links */
+    }
+
+    /* Footer Social Section (mobile specific) */
+    .footer-social {
+        align-items: flex-start;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-light);
+    }
+    .social-icons {
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+    .social-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Footer Bottom Section (mobile specific: STACKED AND LEFT-ALIGNED) */
+    .footer-bottom-content {
+        flex-direction: column; /* Stack items vertically */
+        justify-content: flex-start; /* Align content to the top */
+        align-items: flex-start; /* ALIGNMENT: Align items to the far left horizontally */
+        width: 100%;
+        padding: 0 10px;
+        gap: 5px; /* Reduced gap between stacked items */
+    }
+
+    /* Show mobile copyright, hide desktop copyright */
+    .copyright-mobile {
+        display: flex; /* Make it a flex container to align logo and text */
+        align-items: center; /* Vertically center the logo and text */
+        justify-content: flex-start; /* Left align the logo and text */
+        order: 1;
+        text-align: left; /* Ensure text is left-aligned */
+        width: 100%; /* Take full width to ensure left-alignment context */
+        flex-basis: auto;
+    }
+    .copyright-desktop { display: none; }
+
+    .footer-bottom p { /* Copyright text container - general styles */
+        /* Overridden by .copyright-mobile specific flex rules, no need to define here */
+    }
+
+    .footer-bottom-links-container { /* Links section */
+        order: 2;
+        width: 100%; /* Take full width */
+        justify-content: flex-start; /* ALIGNMENT: Align the links to the far left */
+        text-align: left; /* Ensure text within is left-aligned */
+        flex-basis: auto;
+    }
+
+    .footer-bottom-links {
+        gap: 8px; /* Closer links */
+        justify-content: flex-start; /* Ensure links are left-aligned within their flex container */
+    }
+
+    .footer-language-toggle-wrapper { /* Language Toggle */
+        display: flex; /* Ensure it's visible on mobile */
+        order: 3;
+        justify-content: flex-end; /* ALIGNMENT: Align the toggle content to the far right */
+        width: 100%; /* Take full width to ensure right-alignment context */
+        flex-basis: auto;
+    }
+
+    .footer-language-toggle img {
+        width: 24px; /* Larger icon on mobile */
+        height: 24px;
+        filter: none; /* No invert filter for globe icon */
+    }
+}
+
+/* Adjust for very small screens if necessary */
+@media (max-width: 480px) {
+    .footer-bottom-content {
+        gap: 5px; /* Maintain small gap */
+    }
+}

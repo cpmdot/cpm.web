@@ -1,0 +1,163 @@
+/* === Desktop Navigation Bar === */
+.nav-bar {
+  background-color: var(--cpm-color-surface);
+  border-bottom: 1px solid var(--cpm-color-border);
+  position: fixed;
+  top: var(--header-height);
+  width: 100%;
+  z-index: var(--z-index-nav);
+  height: 60px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
+}
+.nav-bar.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-bar.sticky {
+  top: 0;
+  box-shadow: var(--cpm-shadow-md);
+}
+.nav-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  height: 100%;
+}
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-item {
+  color: var(--cpm-color-text-dark);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 0.25rem;
+  position: relative;
+}
+
+/* === Mobile Slide-in Menu Styles === */
+.mobile-menu-container {
+  position: fixed;
+  top: var(--header-height-mobile);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height-mobile));
+  z-index: var(--z-index-backdrop);
+  pointer-events: none;
+}
+.mobile-menu-container.active {
+  pointer-events: auto;
+}
+.mobile-menu-backdrop {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.mobile-menu-container.active .mobile-menu-backdrop {
+  opacity: 1;
+}
+.mobile-menu {
+  position: relative;
+  width: 85%;
+  max-width: 320px;
+  height: 100%;
+  background-color: var(--cpm-color-surface);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transform: translateX(-100%);
+  transition: transform 0.35s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+.mobile-menu-container.active .mobile-menu {
+  transform: translateX(0);
+}
+
+.mobile-nav-menu {
+  padding-top: 1rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.mobile-nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-nav-menu a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--cpm-color-text-dark);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--cpm-color-border);
+}
+.mobile-nav-menu a:hover {
+    background-color: var(--cpm-color-background);
+}
+
+/* NEW: Styles for the mobile language switcher */
+.mobile-menu-language-section {
+  position: relative; /* Needed for positioning the sub-menu */
+  border-top: 1px solid var(--cpm-color-border);
+}
+.language-main-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--cpm-color-text-dark);
+}
+.language-main-toggle .fa-globe {
+  color: var(--cpm-color-text-light);
+}
+
+.language-sub-menu {
+  position: absolute;
+  bottom: calc(100% + 8px); /* Position it above the button */
+  left: 1.5rem;
+  right: 1.5rem;
+  background-color: var(--cpm-color-surface);
+  border-radius: var(--cpm-border-radius-md);
+  border: 1px solid var(--cpm-color-border);
+  box-shadow: var(--cpm-shadow-md);
+  padding: var(--spacing-sm);
+  z-index: 10;
+}
+.language-sub-menu button {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-3);
+  text-align: left;
+  border-radius: var(--cpm-border-radius-sm);
+}
+.language-sub-menu button:hover {
+  background-color: var(--cpm-color-background);
+}
+.language-sub-menu button.active {
+  font-weight: 600;
+  color: var(--cpm-color-primary);
+}
+
+
+/* On mobile, hide the desktop navigation bar */
+@media (max-width: 768px) {
+  .nav-bar {
+    display: none;
+  }
+}

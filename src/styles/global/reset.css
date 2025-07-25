@@ -1,0 +1,68 @@
+/*
+  A modern CSS reset.
+  This removes default browser styles and inconsistencies.
+*/
+
+/* 1. Use a more intuitive box-sizing model. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin and padding on all elements. */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Allow percentage-based heights in the application. */
+html, body {
+  height: 100%;
+}
+
+/*
+  4. Create a stacking context, and add smooth scrolling.
+     Set default line height and prevent font inflation on mobile.
+*/
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+/* 5. Improve text rendering and ensure body takes up full height. */
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 6. Improve media defaults for responsiveness. */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Remove built-in form typography styles. */
+input, button, textarea, select {
+  font: inherit;
+  border: none;
+  background: none;
+  appearance: none;
+  border: 1px solid #ccd0d5;
+}
+
+/* 8. Make headings unstyled by default to be styled explicitly later. */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* 9. Remove default list styles. */
+ul, ol {
+  list-style: none;
+}
+
+/* 10. Improve text wrapping. */
+p, h1, h2, h3 {
+  overflow-wrap: break-word;
+}

@@ -1,0 +1,77 @@
+/* 
+ * Join Community Styles for CPMdot Dynamic
+ * Last Reviewed: Monday, June 02, 2025, 06:18 PM +07
+ */
+
+/* Join Community Section */
+.join-community {
+    background-color: #f5f5f5;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.join-community-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.join-community h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.join-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #294263;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.join-btn:hover,
+.join-btn:focus {
+    background-color: #1f344f;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .join-community {
+        padding: 20px;
+    }
+    .join-community-content {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .join-community h2 {
+        font-size: 20px;
+    }
+    .join-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .join-community-content {
+        padding: 15px;
+    }
+    .join-community h2 {
+        font-size: 16px;
+    }
+    .join-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

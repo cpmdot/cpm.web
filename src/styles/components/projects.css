@@ -1,0 +1,1085 @@
+/* Define CSS Variables for Consistency */
+.projects-section {
+    --primary-color: #1a3c34; /* Dark green/teal */
+    --primary-light: #2a5c54;
+    --secondary-color: #ff6f61; /* Coral/Orange */
+    --secondary-dark: #e55a4b;
+    --accent-color: #4a90e2; /* Blue accent */
+    --accent-dark: #357abd;
+    --light-color: #f4f7f6; /* Light grey */
+    --dark-color: #2f2f2f; /* Dark text */
+    --text-color: #333333;
+    --text-light: #6b7280; /* Lighter grey text */
+    --border-radius: 12px;
+    --box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    --transition: all 0.3s ease-in-out;
+}
+
+/* Reset and Base Styles */
+.projects-section * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.projects-section {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%); /* Light background gradient */
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 0;
+    width: 100%;
+}
+
+/* Main Container (holds sidebar and main content) */
+.projects-section .proj-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: var(--border-radius);
+    box-shadow: none;
+    overflow: visible;
+    transition: var(--transition);
+    padding: 0 20px; /* Horizontal padding for desktop */
+    box-sizing: border-box;
+}
+
+/* Sidebar (Left column - visible in carousel mode on desktop) */
+.projects-section .proj-sidebar {
+    width: 25%;
+    padding-top: 56px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 0;
+    background: transparent;
+    color: var(--text-color);
+    display: flex; /* Flex container for its content */
+    flex-direction: column;
+    transition: var(--transition);
+    position: relative;
+    z-index: 5;
+}
+
+/* Stats in Sidebar */
+.projects-section .proj-stats {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 0;
+    border: none;
+}
+
+.projects-section .proj-stats .proj-stat-item {
+    text-align: center;
+    flex: 1;
+}
+
+.projects-section .proj-stats .proj-stat-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 2px;
+}
+
+.projects-section .proj-stats .proj-stat-label {
+    font-size: 0.6rem;
+    color: var(--text-light);
+}
+
+/* Header Content (General styles, used in sidebar and main content) */
+.projects-section .proj-header-content {
+    margin-bottom: 16px;
+}
+
+.projects-section .proj-header-content h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+}
+
+.projects-section .proj-header-content p {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+/* Sidebar specific header content */
+.projects-section .proj-sidebar .proj-header-content h1 {
+    color: var(--dark-color);
+}
+
+.projects-section .proj-sidebar .proj-header-content p {
+    color: var(--text-light);
+}
+
+/* Main Content specific header content */
+.projects-section .proj-main-content .proj-header-content {
+    display: flex; /* Always display for main content */
+    flex-direction: column;
+}
+
+.projects-section .proj-main-content .proj-header-content h1 {
+    color: var(--dark-color);
+    font-size: 1.44rem;
+    margin-bottom: 8px;
+}
+
+.projects-section .proj-main-content .proj-header-content .proj-main-content-description {
+    color: var(--text-light);
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+/* Hide sidebar header content when in full-view (desktop) */
+.projects-section .proj-container.full-view .proj-sidebar .proj-header-content {
+    display: none;
+}
+
+/* Sidebar Service Filter (Dropdown) */
+.projects-section .proj-service-filter {
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: var(--border-radius);
+    font-size: 0.68rem;
+    background: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    margin-bottom: 16px;
+    width: 100%;
+    appearance: none; /* Hide default dropdown arrow */
+    /* Custom arrow using background-image */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    transition: var(--transition);
+    box-shadow: inset 0 1.6px 3.2px rgba(0, 0, 0, 0.1); /* Inner shadow */
+}
+
+.projects-section .proj-service-filter option {
+    background: #d3d3d3;
+    color: #000000;
+}
+
+.projects-section .proj-service-filter:hover {
+    background: #c0c0c0;
+    transform: translateY(-1px);
+}
+
+.projects-section .proj-service-filter:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Sidebar Actions (Explore Button) */
+.projects-section .proj-sidebar-actions {
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.projects-section .proj-explore-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3.2px 8px rgba(0, 0, 0, 0.1);
+    background: var(--secondary-color); /* Orange color */
+    color: #ffffff;
+}
+
+.projects-section .proj-explore-btn:hover {
+    background: var(--secondary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4.8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.projects-section .proj-sidebar-actions i {
+    transition: var(--transition);
+}
+
+.projects-section .proj-sidebar-actions button:hover i {
+    transform: translateX(4px);
+}
+
+/* Main Content Area (Right column or full width, always shown) */
+.projects-section .proj-main-content {
+    width: 75%; /* Desktop width */
+    padding-top: 32px;
+    padding-right: 0px; 
+    padding-bottom: 0px;
+    padding-left: 15px; 
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+/* Filter buttons in full-view mode */
+.projects-section .proj-header-wrapper {
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 20;
+    width: 100%;
+}
+
+/* Fixed header for full-view (desktop) */
+.projects-section .proj-container.full-view .proj-header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 16px;
+    box-shadow: 0 3.2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjust main content padding for fixed header in full-view */
+.projects-section .proj-container.full-view .proj-main-content {
+    padding-top: 64px;
+}
+
+/* Constrain header content width for fixed header */
+.projects-section .proj-container.full-view .proj-header-wrapper > * {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.projects-section .proj-content-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    flex-direction: column;
+    gap: 8px;
+}
+.projects-section .proj-content-header h1,
+.projects-section .proj-content-header p {
+    text-align: left;
+}
+
+
+.projects-section .proj-property-types {
+    margin-bottom: 24px;
+}
+
+.projects-section .proj-property-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.projects-section .proj-property-btn {
+    padding: 8px 16px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 25px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: var(--transition);
+    box-shadow: 0 1.6px 4px rgba(0, 0, 0, 0.05);
+}
+
+.projects-section .proj-property-btn:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+    transform: translateY(-1px);
+    box-shadow: 0 3.2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projects-section .proj-property-btn.active {
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+    box-shadow: 0 3.2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Filter Dropdown for Main Content (Desktop & Mobile) */
+.projects-section .proj-service-filter-dropdown {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: var(--border-radius);
+    font-size: 0.68rem;
+    background: #ffffff;
+    color: var(--text-color);
+    cursor: pointer;
+    width: auto;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236b7280'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    transition: var(--transition);
+    box-shadow: 0 1.6px 4px rgba(0, 0, 0, 0.05);
+    display: none; /* Default hidden on desktop, shown by media query */
+    position: relative;
+}
+
+.projects-section .proj-service-filter-dropdown:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+.projects-section .proj-service-filter-dropdown:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2.4px rgba(74, 144, 226, 0.2);
+}
+
+/* Vertical line after dropdown on desktop */
+.projects-section .proj-service-filter-dropdown::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.6px;
+    height: 24px;
+    background-color: #6b7280;
+}
+
+
+/* Projects Wrapper (Holds all project cards) */
+.projects-section .proj-projects-wrapper {
+    position: relative;
+    flex-grow: 1;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px; 
+}
+
+.projects-section .proj-projects {
+    overflow: hidden;
+    width: 100%;
+    flex-grow: 1;
+    padding: 0;
+    background: transparent;
+}
+
+.projects-section .proj-projects-inner {
+    display: flex;
+    transition: transform 0.5s ease-out;
+    gap: 20px;
+    touch-action: pan-y;
+}
+
+/* Individual Project Card */
+.projects-section .proj-project-card {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: calc(33.333% - 13.33px);
+    flex: 0 0 calc(33.333% - 13.33px);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.projects-section .proj-project-card:hover {
+    box-shadow: var(--box-shadow-hover);
+    border-color: var(--accent-color);
+    background: #f8f9fa;
+}
+
+.projects-section .proj-project-header {
+    height: 160px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Project Header Backgrounds (using classes from HTML for specific projects) */
+.projects-section .project-1 { background: linear-gradient(135deg, #ffcc00 50%, #ff9900 50%); }
+.projects-section .project-2 {
+    background-image: url('https://cpmdot.b-cdn.net/images/project/P1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.projects-section .project-3 { background: linear-gradient(135deg, #4a90e2 50%, #357abd 50%); }
+.projects-section .project-4 { background: linear-gradient(135deg, #00cc99 50%, #009966 50%); }
+.projects-section .project-5 { background: linear-gradient(135deg, #ff6666 50%, #cc3333 50%); }
+.projects-section .project-6 { background: linear-gradient(135deg, #6b7280 50%, #4b5563 50%); }
+.projects-section .project-7 { background: linear-gradient(135deg, #ffcc66 50%, #ffaa33 50%); }
+.projects-section .project-8 { background: linear-gradient(135deg, #33cc99 50%, #29a37a 50%); }
+.projects-section .project-9 { background: linear-gradient(135deg, #9966cc 50%, #7a5299 50%); }
+.projects-section .project-10 { background: linear-gradient(135deg, #ff9966 50%, #cc6633 50%); }
+.projects-section .project-11 { background: linear-gradient(135deg, #66cccc 50%, #339999 50%); }
+.projects-section .project-12 { background: linear-gradient(135deg, #cc6699 50%, #993366 50%); }
+
+/* Overlay for header images */
+.projects-section .proj-project-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.projects-section .proj-project-card:hover .proj-project-header::before {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Overlay for quick view button */
+.projects-section .proj-project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Hidden by default */
+    transition: var(--transition);
+}
+
+.projects-section .proj-project-card:hover .proj-project-overlay {
+    opacity: 1;
+}
+
+/* Quick View Button */
+.projects-section .proj-quick-view-btn {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dark-color);
+    border: none;
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6.4px;
+    box-shadow: 0 3.2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projects-section .proj-quick-view-btn:hover {
+    background: #ffffff;
+    transform: translateY(-1.6px);
+}
+
+/* Project Badge (e.g., "Completed 2023") */
+.projects-section .proj-project-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
+    padding: 4.8px 9.6px;
+    border-radius: 16px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    box-shadow: 0 1.6px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+/* Project Card Content */
+.projects-section .proj-project-content {
+    padding: 16px;
+}
+
+.projects-section .proj-project-content h2 {
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin-bottom: 6.4px;
+    color: var(--dark-color);
+}
+
+.projects-section .proj-project-location {
+    font-size: 0.64rem;
+    color: var(--text-light);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.projects-section .proj-project-location i {
+    font-size: 0.72rem;
+}
+
+.projects-section .proj-project-type {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    font-weight: 400;
+}
+
+.projects-section .proj-project-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6.4px;
+    margin-bottom: 16px;
+}
+
+.projects-section .proj-service-tag {
+    background: #e5e7eb;
+    color: var(--dark-color);
+    padding: 4px 9.6px;
+    border-radius: 16px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.projects-section .proj-service-tag:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+
+/* Project Card Footer */
+.projects-section .proj-project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projects-section .proj-project-details-btn {
+    padding: 8px 12px;
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6.4px;
+}
+
+.projects-section .proj-project-details-btn:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.projects-section .proj-project-details-btn i {
+    transition: var(--transition);
+}
+
+.projects-section .proj-project-details-btn:hover i {
+    transform: translateX(4px);
+}
+
+.projects-section .proj-project-size {
+    font-size: 0.64rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Carousel Arrows */
+.projects-section .proj-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3.2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0; /* Hidden by default */
+    transition: var(--transition);
+}
+
+.projects-section .proj-arrow i {
+    font-size: 0.96rem;
+    color: var(--dark-color);
+}
+
+.projects-section .proj-arrow:hover {
+    background: var(--accent-color);
+}
+
+.projects-section .proj-arrow:hover i {
+    color: #ffffff;
+}
+
+.projects-section .proj-left-arrow {
+    left: -17.6px;
+}
+
+.projects-section .proj-right-arrow {
+    right: -17.6px;
+}
+
+.projects-section .proj-projects-wrapper:hover .proj-arrow {
+    opacity: 1; /* Show arrows on hover of wrapper */
+}
+
+.projects-section .proj-arrow.hidden {
+    display: none; /* Class to explicitly hide arrows */
+}
+
+/* Full View Styles (when desktop "Explore All" is clicked) */
+.projects-section .proj-container.full-view {
+    display: block; /* Changes from flex to block */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    background: transparent;
+}
+
+.projects-section .proj-container.full-view .proj-sidebar {
+    display: none; /* Hide sidebar in full-view */
+}
+
+.projects-section .proj-container.full-view .proj-main-content {
+    width: 100%; /* Take full width */
+    padding: 24px;
+}
+
+.projects-section .proj-container.full-view .proj-projects-inner {
+    display: grid; /* Change to grid for full-view */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns in full-view */
+    gap: 20px;
+}
+
+.projects-section .proj-container.full-view .proj-project-card {
+    width: 100%; /* Cards take full grid cell width */
+    margin: 0;
+}
+
+.projects-section .proj-container.full-view .proj-arrow {
+    display: none; /* Hide arrows in full-view */
+}
+
+/* Full-view header content (showing Explore Our Projects) */
+.projects-section .proj-container.full-view .proj-content-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.projects-section .proj-container.full-view .proj-content-header .proj-header-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Infinite Scroll Visibility */
+.projects-section .proj-container.full-view .proj-project-card[data-visible="false"] {
+    display: none;
+}
+
+.projects-section .proj-container.full-view .proj-project-card[data-visible="true"] {
+    display: block;
+}
+
+/* Loading Animation */
+.projects-section .proj-loading {
+    text-align: center;
+    padding: 16px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    display: none; /* Hidden by default */
+}
+
+.projects-section .proj-loading.active {
+    display: block; /* Show when active */
+}
+
+/* Project Modal */
+.projects-section .proj-project-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.projects-section .proj-project-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.projects-section .proj-modal-content {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 720px;
+    max-height: 90vh; /* Limit height to viewport height */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(16px); /* Initial slight offset */
+    transition: var(--transition);
+}
+
+.projects-section .proj-project-modal.active .proj-modal-content {
+    transform: translateY(0); /* Slide in on active */
+}
+
+.projects-section .proj-close-modal {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.projects-section .proj-close-modal:hover {
+    color: var(--dark-color);
+    transform: rotate(90deg);
+}
+
+.projects-section .proj-modal-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.projects-section .proj-modal-title {
+    font-size: 1.44rem;
+    color: var(--dark-color);
+}
+
+.projects-section .proj-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.projects-section .proj-modal-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6.4px;
+}
+
+/* Mobile Projects display */
+.projects-section .proj-mobile-projects {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.projects-section .proj-mobile-projects-inner {
+    /* This is now the actual inner container for mobile grid */
+}
+
+.projects-section .proj-mobile-projects .proj-project-card {
+    width: 100%;
+    flex: none;
+}
+
+/* Mobile Loading Indicator */
+.projects-section .proj-mobile-content .proj-loading {
+    display: none;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.projects-section .proj-mobile-content .proj-loading.active {
+    display: block;
+}
+
+/* No Results Message */
+.projects-section .proj-no-results,
+.projects-section .proj-no-results-mobile {
+    display: flex; /* Hidden by default, shown by JS */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.projects-section .proj-no-results p,
+.projects-section .proj-no-results-mobile p {
+    margin: 0;
+}
+
+.projects-section .proj-no-results .proj-service-name,
+.projects-section .proj-no-results .proj-property-type,
+.projects-section .proj-no-results-mobile .proj-service-name,
+.projects-section .proj-no-results-mobile .proj-property-type {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+/* Mobile specific no results message size */
+@media (max-width: 600px) {
+    .projects-section .proj-no-results-mobile {
+        font-size: 0.8rem;
+    }
+}
+
+/* Fade-in animation for cards */
+@keyframes fadeInCard {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.proj-project-card.fade-in {
+    animation: fadeInCard 0.5s ease-out forwards;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .projects-section .proj-container.full-view .proj-projects-inner {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for slightly smaller screens */
+    }
+
+    .projects-section .proj-project-card {
+        width: calc(50% - 10px); /* Adjust width for 2-column layout in carousel on medium screens */
+        flex: 0 0 calc(50% - 10px);
+    }
+
+    .projects-section .proj-container {
+        padding: 0 12px;
+    }
+
+    .projects-section .proj-container.full-view .proj-header-wrapper > * {
+        padding: 0 12px;
+    }
+}
+
+@media (max-width: 900px) {
+    .projects-section .proj-container {
+        flex-direction: column; /* Stack sidebar and main content */
+        padding: 0 8px;
+    }
+
+    .projects-section .proj-sidebar,
+    .projects-section .proj-main-content {
+        width: 100%; /* Take full width when stacked */
+    }
+
+    .projects-section .proj-container.full-view .proj-projects-inner {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns in full-view on medium screens */
+    }
+
+    .projects-section .proj-project-card {
+        width: calc(50% - 10px); /* 2 columns in carousel on medium screens */
+        flex: 0 0 calc(50% - 10px);
+    }
+
+    .projects-section .proj-content-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .projects-section .proj-container.full-view .proj-content-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projects-section .proj-service-filter-dropdown {
+        width: 100%;
+    }
+
+    .projects-section .proj-container.full-view .proj-service-filter-dropdown::after {
+        display: none; /* Hide vertical line next to dropdown on smaller screens */
+    }
+
+    .projects-section .proj-projects-wrapper {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* No separate full-view container on mobile, so these rules apply to proj-container directly */
+    .projects-section .proj-container {
+        flex-direction: column; /* Stack sidebar and main content */
+        padding: 0 4px; /* Reduced padding */
+    }
+    
+    /* Order of elements in mobile layout */
+    /* proj-sidebar elements moved directly into proj-main-content in JSX for mobile */
+    .projects-section .proj-sidebar { /* This sidebar is now hidden on mobile */
+        display: none;
+    }
+
+    .projects-section .proj-main-content { /* This is the main visible content area for mobile */
+        order: 1; /* First element in container */
+        width: 100%;
+        padding: 0 8px 8px 8px; /* Adjusted padding */
+    }
+
+    .projects-section .proj-projects-inner {
+        display: grid;
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 20px;
+    }
+
+    .projects-section .proj-project-card {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .projects-section .proj-header-wrapper {
+        position: static; /* No longer fixed on small screens */
+        box-shadow: none;
+    }
+
+    /* Show specific elements in proj-main-content for mobile */
+    .projects-section .proj-main-content .proj-content-header, /* Header */
+    .projects-section .proj-main-content .mobile-only-proj-actions, /* Explore button */
+    .projects-section .proj-main-content .mobile-only-proj-stats, /* Stats */
+    .projects-section .proj-main-content .proj-service-filter-dropdown { /* Service dropdown */
+        display: flex; /* Make these visible on mobile */
+        flex-direction: column; /* Stack internally for header/actions/stats */
+        align-items: flex-start; /* Left align content */
+        margin-bottom: 16px; /* Space between sections */
+        padding: 0 12px; /* Internal padding */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .projects-section .proj-main-content .proj-stats {
+        flex-direction: row; /* Keep stats horizontal */
+        justify-content: center;
+        gap: 16px;
+        border: 1px solid var(--text-light);
+        border-radius: var(--border-radius);
+        padding: 8px;
+    }
+
+    .projects-section .proj-main-content .proj-explore-btn {
+        width: 100%; /* Make explore button full width */
+    }
+
+    .projects-section .proj-main-content .proj-service-filter-dropdown {
+        width: 100%;
+        display: block; /* Ensure it's block for full width */
+        background-position: right 10px center; /* Adjust dropdown arrow position */
+    }
+
+    /* Hide the vertical line after service filter dropdown on mobile */
+    .projects-section .proj-service-filter-dropdown::after {
+        display: none;
+    }
+
+    /* Property buttons adjustments for mobile */
+    .projects-section .proj-property-buttons {
+        gap: 4px;
+        justify-content: flex-start; /* Left align buttons */
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 12px;
+        margin-bottom: 16px; /* Space below buttons */
+    }
+    .projects-section .proj-property-btn {
+        padding: 4px 8px;
+        font-size: 0.56rem;
+        border-radius: 16px;
+        flex: 0 0 auto;
+        min-width: fit-content;
+    }
+
+    /* Loading indicator for mobile */
+    .projects-section .proj-loading.active {
+        display: block;
+    }
+}
+
+/* Larger screens (>= 601px) */
+@media (min-width: 601px) {
+    /* Hide specific mobile-only elements from main content on larger screens */
+    .projects-section .proj-main-content .proj-content-header,
+    .projects-section .proj-main-content .mobile-only-proj-actions, /* Added mobile-only class */
+    .projects-section .proj-main-content .mobile-only-proj-stats { /* Added mobile-only class */
+        display: none; /* Hidden on desktop main content */
+    }
+
+    /* Show filter dropdown and property buttons on desktop */
+    .projects-section .proj-service-filter-dropdown {
+        display: inline-block;
+    }
+    .projects-section .proj-property-buttons {
+        display: flex;
+    }
+    /* Re-enable vertical line after service filter dropdown on desktop */
+    .projects-section .proj-service-filter-dropdown::after {
+        display: block;
+    }
+}
+
+/* Adjust for very small screens if necessary */
+@media (max-width: 480px) {
+    .projects-section .proj-container {
+        padding: 0 0px; /* Even less padding on very small screens */
+    }
+    .projects-section .proj-main-content {
+        padding: 0 4px 4px 4px; /* Adjust padding */
+    }
+    .projects-section .proj-content-header,
+    .projects-section .proj-sidebar-actions, /* Now mobile-only-proj-actions */
+    .projects-section .proj-stats, /* Now mobile-only-proj-stats */
+    .projects-section .proj-service-filter-dropdown,
+    .projects-section .proj-property-buttons {
+        padding: 0 8px; /* Reduce horizontal padding */
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .projects-section .proj-property-buttons {
+        justify-content: center; /* Center buttons if they overflow left alignment */
+    }
+    .projects-section .proj-header-content h1 {
+        font-size: 1.6rem; /* Smaller header */
+    }
+    .projects-section .proj-header-content p {
+        font-size: 0.7rem; /* Smaller description */
+    }
+    .projects-section .proj-project-card {
+        padding: 12px; /* Smaller card padding */
+    }
+    .projects-section .proj-project-content h2 {
+        font-size: 1rem; /* Smaller project title */
+    }
+}

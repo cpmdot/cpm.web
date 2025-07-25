@@ -1,0 +1,751 @@
+:root {
+    --primary-color: #005b96; /* Blue */
+    --secondary-color: #f4f6f8; /* Light grey/off-white */
+    --text-color: #333; /* Dark grey text */
+    --border-color: #e0e0e0; /* Light grey border */
+    --error-color: #d32f2f; /* Red for errors */
+    --success-color: #388e3c; /* Green for success */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Visually hidden for screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Main Contact Container - holds sidebar and form */
+.cform-contact-container {
+    display: flex;
+    background: var(--secondary-color); /* Light grey background */
+    height: 100%; /* Take full height of its parent (popup-content) */
+}
+
+/* Contact Info Sidebar */
+.cform-contact-info-sidebar {
+    flex: 1; /* Takes 1 part of the flex space */
+    background: var(--primary-color); /* Blue background */
+    color: #fff; /* White text */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out content vertically */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.cform-sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure content fills sidebar */
+}
+
+.cform-contact-details {
+    flex-grow: 1; /* Allows details to take available space */
+    margin-left: 20px; /* Indent details from the left edge */
+}
+
+.cform-contact-details h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.cform-contact-method {
+    display: flex;
+    align-items: center; /* Vertically align icon and text */
+    margin-bottom: 24px;
+}
+
+.cform-contact-method i {
+    font-size: 1.6rem;
+    margin-right: 16px;
+}
+
+.cform-contact-method div {
+    display: flex;
+    flex-direction: column;
+}
+
+.cform-contact-method h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.cform-contact-method p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.cform-business-hours h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.cform-business-hours p {
+    font-size: 1.1rem;
+}
+
+.cform-logo-container {
+    text-align: center; /* Center logo horizontally */
+    margin: 24px 0;
+}
+
+.cform-logo-container img {
+    max-width: 160px;
+    transition: var(--transition);
+}
+
+.cform-logo-container img:hover {
+    opacity: 0.9;
+}
+
+.cform-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.cform-social-link {
+    display: inline-block; /* Allows vertical alignment/spacing */
+}
+
+.cform-social-icon {
+    width: 22px;
+    height: 22px;
+    transition: var(--transition);
+    filter: brightness(0) invert(1); /* Invert colors to make icons white */
+}
+
+.cform-social-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    filter: brightness(0) invert(1); /* Keep white on hover */
+}
+
+/* Contact Form Section (right side with forms) */
+.cform-contact-form {
+    flex: 2; /* Takes 2 parts of the flex space (wider) */
+    padding: 60px 48px 48px;
+    background: #fff; /* White background */
+    font-family: var(--font-family);
+    max-height: 100%; /* Ensure it doesn't overflow parent */
+    overflow-y: auto; /* Enable scrolling for forms if content is long */
+}
+
+/* Tab Navigation for forms */
+.cform-form-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.cform-tab-button {
+    flex: 1; /* Each button takes equal width */
+    padding: 16px;
+    background: none;
+    border: 1px solid var(--border-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+    position: relative;
+    margin-bottom: -2px; /* Overlap with border-bottom for active tab effect */
+}
+
+.cform-tab-button + .cform-tab-button {
+    border-left: none; /* Remove border between buttons */
+}
+
+.cform-tab-button.active {
+    background: var(--primary-color);
+    color: #fff;
+    border-bottom: 1px solid var(--primary-color); /* Underline effect */
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Rounded top corners */
+}
+
+.cform-tab-button:hover {
+    background: var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cform-tab-button i {
+    font-size: 1.3rem;
+}
+
+/* Tab Content */
+.cform-tab-content {
+    display: none; /* Hidden by default, shown by active class in React */
+}
+
+.cform-tab-content.active {
+    display: block;
+}
+
+.cform-tab-content h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cform-tab-content h1 i {
+    font-size: 1.6rem;
+}
+
+.cform-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+/* Form Groups */
+.cform-form-group {
+    margin-bottom: 24px;
+}
+
+.cform-form-group label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.cform-form-group input,
+.cform-form-group select,
+.cform-form-group textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    background: #fafafa; /* Light background for fields */
+}
+
+.cform-form-group input:focus,
+.cform-form-group select:focus,
+.cform-form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 91, 150, 0.3); /* Blue shadow on focus */
+    background: #fff;
+}
+
+.cform-form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 120px;
+}
+
+/* Custom Date/Time Inputs */
+.cform-custom-date-time {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 24px;
+}
+
+.cform-date-info,
+.cform-time-info {
+    flex: 1; /* Allow them to take equal space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    background: transparent;
+    transition: var(--transition);
+    min-height: 50px;
+}
+
+.cform-date-info:hover,
+.cform-time-info:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.cform-date-info i,
+.cform-time-info i {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.cform-date-info:hover i,
+.cform-time-info:hover i {
+    color: var(--primary-color);
+}
+
+.cform-date-text,
+.cform-time-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.cform-date-text span,
+.cform-time-text span {
+    font-size: 1.1rem;
+}
+
+#cform-selectedDay,
+#cform-selectedTime {
+    font-weight: 600;
+}
+
+/* Hide the actual date and time input fields, controlled by custom UI */
+#cform-apptDate,
+#cform-apptTime {
+    position: absolute; /* Hide visually but keep accessible */
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Datepicker/time picker clickability (ensure custom UI is clickable) */
+.cform-date-info,
+.cform-time-info {
+    pointer-events: auto !important; /* Override pointer-events: none from input fields */
+    z-index: 10001 !important;
+    display: flex !important;
+}
+
+/* Fallback message for native date input */
+.cform-fallback-message {
+    color: var(--error-color);
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Checkbox group */
+.cform-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.cform-checkbox-text-group {
+    display: flex;
+    flex-wrap: nowrap; /* Keep checkbox and text on same line */
+    align-items: flex-start; /* Align to top if text wraps */
+    gap: 8px;
+    margin-left: 0;
+}
+
+.cform-checkbox-group input[type="checkbox"] { /* Target checkbox specifically */
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0077cc;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+.cform-checkbox-group input[type="checkbox"]:checked {
+  background-color: #0077cc;
+}
+
+.cform-checkbox-group input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.cform-privacy-text {
+    font-size: 1rem;
+    color: #555;
+    max-width: calc(100% - 24px); /* Account for checkbox width */
+    line-height: 1.4;
+}
+
+.cform-privacy-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.cform-privacy-text a:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.cform-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--primary-color), #007bc4);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.cform-submit-btn i {
+    font-size: 1.3rem;
+}
+
+.cform-submit-btn:hover {
+    background: linear-gradient(135deg, #004b7d, var(--primary-color));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Error Messages */
+.cform-error-message {
+    color: var(--error-color);
+    font-size: 0.95rem;
+    margin-top: 8px;
+    display: none; /* Hidden by default, shown by 'show' class in React */
+}
+
+.cform-error-message.show {
+    display: block;
+}
+
+/* Specific error message alignment */
+#cform-privacyError,
+#cform-apptPrivacyError {
+    margin-top: 8px;
+    text-align: left;
+}
+
+/* Success Messages */
+.cform-success-message {
+    display: none; /* Hidden by default, shown by 'show' class in React */
+    padding: 16px;
+    background: var(--success-color);
+    color: #fff;
+    border-radius: var(--border-radius);
+    margin-bottom: 24px;
+    display: flex; /* Ensure flex layout when visible */
+    align-items: center;
+    gap: 12px;
+}
+
+.cform-success-message i {
+    font-size: 1.6rem;
+}
+
+.cform-success-message.show {
+    display: flex;
+}
+
+/* Custom Time Picker Dropdown */
+.cform-time-picker {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10000 !important;
+    position: absolute; /* Positioned relative to viewport/nearest positioned ancestor */
+    display: none; /* Hidden by default, shown by React state */
+}
+
+.cform-time-option {
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    background: none; /* Ensure no default button background */
+    border: none; /* Ensure no default button border */
+    width: 100%; /* Make option fill width */
+    text-align: left; /* Align text to left */
+}
+
+.cform-time-option:hover {
+    background: #f0f0f0;
+}
+
+/* Contact Popup Overlay and Content */
+.cform-contact-popup {
+    display: none; /* Hidden by default, shown by 'active' class in React */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 9999;
+    overflow: hidden; /* Prevent body scroll when open */
+}
+
+.cform-contact-popup.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    transform: none;
+    height: 100%;
+    animation: fadeIn 0.3s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.cform-contact-popup-content {
+    background: #fff;
+    border-radius: var(--border-radius);
+    width: 90%; /* Max width for popup content */
+    max-width: 1000px;
+    position: relative;
+    box-shadow: var(--box-shadow);
+    max-height: 90vh; /* Limit height to viewport height */
+    overflow-y: auto; /* Enable scrolling for content if needed */
+    margin: 20px 0; /* Add vertical margin */
+}
+
+/* Close Button */
+.cform-close-popup {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-color);
+    z-index: 10001; /* Ensure it's above other elements */
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.cform-close-popup:hover {
+    color: var(--primary-color);
+}
+
+/* Datepicker styles (for jQuery UI) */
+.ui-datepicker {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    z-index: 10000 !important; /* Ensure it's above other elements */
+    padding: 10px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+.ui-datepicker-header {
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    padding: 8px;
+    text-align: center;
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.ui-datepicker-title {
+    font-weight: 600;
+}
+
+.ui-datepicker-calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ui-datepicker-calendar th,
+.ui-datepicker-calendar td {
+    padding: 8px;
+    text-align: center;
+}
+
+.ui-datepicker-calendar td a {
+    display: block;
+    padding: 8px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.ui-datepicker-calendar td a:hover,
+.ui-datepicker-calendar .ui-state-active {
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 4px;
+}
+
+.ui-datepicker-calendar .ui-state-disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .cform-contact-container {
+        flex-direction: column; /* Stack sidebar and form vertically */
+        height: auto;
+        min-height: 100%;
+        overflow-y: visible;
+    }
+
+    .cform-contact-form {
+        order: 1; /* Form first on mobile */
+        padding: 60px 24px 24px;
+    }
+
+    .cform-contact-info-sidebar {
+        order: 2; /* Sidebar second on mobile */
+        padding: 24px;
+        max-height: none;
+    }
+
+    .cform-contact-details {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .cform-contact-method {
+        flex-direction: column; /* Stack icon and text */
+        align-items: center;
+        text-align: center;
+    }
+
+    .cform-contact-method i {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    .cform-social-links {
+        justify-content: center;
+    }
+
+    .cform-form-tabs {
+        flex-direction: column; /* Stack tabs vertically */
+    }
+
+    .cform-tab-button {
+        border-radius: var(--border-radius);
+        margin-bottom: 12px;
+    }
+
+    .cform-tab-button.active {
+        border-radius: var(--border-radius);
+    }
+
+    .cform-custom-date-time {
+        flex-direction: column; /* Stack date and time pickers vertically */
+    }
+
+    .cform-date-info,
+    .cform-time-info {
+        min-height: 50px;
+        width: 100%;
+    }
+
+    .cform-contact-popup.active {
+        top: 0;
+        height: 100%;
+    }
+
+    .cform-contact-popup-content {
+        width: 95%;
+        max-height: calc(100vh - 180px); /* Adjust height for mobile viewport */
+        height: auto;
+        margin: 90px 0 40px 0;
+        overflow-y: auto;
+    }
+
+    .cform-close-popup {
+        position: fixed; /* Keep close button fixed on scroll */
+        top: calc(80px + env(safe-area-inset-top) + 10px); /* Adjust top for safe area */
+        right: 10px;
+        font-size: 16px;
+        padding: 2px;
+        z-index: 10002;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cform-privacy-text {
+        max-width: calc(100% - 24px);
+        font-size: 0.95rem;
+    }
+
+    .cform-checkbox-text-group {
+        align-items: flex-start;
+        margin-left: 0;
+    }
+
+    .cform-checkbox-group input {
+        margin-top: 4px;
+    }
+
+    .cform-submit-btn {
+        width: 100%;
+        padding: 14px;
+        justify-content: center;
+    }
+
+    .ui-datepicker {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+/* Scrollbar styles for form content */
+.cform-contact-popup-content::-webkit-scrollbar,
+.cform-contact-form::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cform-contact-popup-content::-webkit-scrollbar-track,
+.cform-contact-form::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.cform-contact-popup-content::-webkit-scrollbar-thumb,
+.cform-contact-form::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
