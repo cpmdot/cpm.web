@@ -1,8 +1,7 @@
 import { useDispatch } from 'react-redux';
 import React, { useState, useCallback } from 'react';
 import { useLanguage } from '../../context/LanguageContext'; // Adjust path as necessary
-import { submitContactForm } from '../../api/api';
-import { createContact } from '../../features/contacts/Thunks';
+import { createContact } from '../../features/contacts/thunks';
 
 const ContactForm = ({ onSuccess, onError, isActive }) => { // Added isActive prop
   const dispatch = useDispatch();
