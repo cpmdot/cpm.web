@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // import '../styles/pages/createAppointmentForm.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { createAppointment } from '../features/appointments/thunks';
-import { useLanguage } from '../context/LanguageContext';
-import { convertUtcSlotsToLocal24h } from '../features/dateTimeUtils';
+import { createAppointment } from '../../features/appointments/thunks';
+import { useLanguage } from '../../context/LanguageContext';
+import { convertUtcSlotsToLocal24h } from '../../features/dateTimeUtils';
 
 export default function CreateAppointmentForm({
   onSuccess,
@@ -66,6 +66,10 @@ export default function CreateAppointmentForm({
       setServiceNeeded('');
       setPrivacyPolicy(false);
       setAvailableSlots([]);
+
+      setSuccessMessage(t('appointment-success-message'));
+      onSuccess(t('appointment-success-toast'));
+      setTimeout(() => setSuccessMessage(''), 5000);
     }
   }, [success, dispatch]);
 
@@ -84,10 +88,15 @@ export default function CreateAppointmentForm({
       return;
     }
 
+    // Convert apptTime and apptDate to UTC format
+    const apptDateTimeUTC = new Date(`${apptDate}T${apptTime}`).toISOString();
+    const dateUTC = apptDateTimeUTC.slice(0, 10);
+    const timeUTC = apptDateTimeUTC.slice(11, 16);
+
     dispatch(
       createAppointment({
-        apptDate,
-        apptTime,
+        apptDate: dateUTC,
+        apptTime: timeUTC,
         clientName,
         clientEmail,
         clientPhone,
@@ -96,12 +105,6 @@ export default function CreateAppointmentForm({
         privacyPolicy,
       })
     );
-
-    if (success) {
-      setSuccessMessage(t('appointment-success-message'));
-      onSuccess(t('appointment-success-toast'));
-      setTimeout(() => setSuccessMessage(''), 5000);
-    }
   };
 
   return (
@@ -125,7 +128,7 @@ export default function CreateAppointmentForm({
               <p>{successMessage}</p>
             </div>
           )}
-          {error && <p className="error-msg">{error}</p>}
+          {error && <p className="error-msg cform-error-message show">{error}</p>}
           <div className="cform-form-group">
             <label htmlFor="cform-apptDate">{t('date-time-label')}</label>
             <div className="cform-date-info">

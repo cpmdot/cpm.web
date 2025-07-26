@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import ContactForm from './forms/ContactForm'; // Import the ContactForm component
 import AppointmentForm from './forms/AppointmentForm'; // Import the AppointmentForm component
 import '../styles/components/contact.css'; // Import the CSS for the contact popup
-import CreateAppointmentForm from '../pages/CreateAppointmentForm';
+import CreateAppointmentForm from './forms/CreateAppointmentForm'; 
 
 const Contact = ({ isOpen, onClose, onSuccess, onError }) => {
   const { t } = useLanguage();

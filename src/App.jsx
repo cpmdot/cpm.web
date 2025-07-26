@@ -13,7 +13,7 @@ import About from './pages/About';
 // Import Global CSS - these will be bundled by Webpack
 import './styles/global/reset.css';
 import './styles/global/base.css';
-import CreateAppointmentForm from './pages/CreateAppointmentForm';
+import CreateAppointmentForm from './components/forms/CreateAppointmentForm';
 
 const App = () => {
   return (
